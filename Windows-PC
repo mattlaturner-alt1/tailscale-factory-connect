@@ -1,0 +1,16 @@
+## Install Tailscale on Windows
+Note: The current version of the Tailscale client available for download requires Windows 10 or later.
+
+## This topic shows how to install with the Tailscale .exe installer. If you want to use the Tailscale .msi installer, refer to Install Tailscale on Windows with MSI.
+
+## Download the latest .exe installer. You can use the same .exe installer on both 32- and 64-bit Windows; it will install the right version for your system automatically.
+https://tailscale.com/download/windows
+
+## Run the installer. 
+Note the new Tailscale icon in your system tray once installation is complete. If it is not visible, select the up arrow to find it in the system tray overflow area.
+
+## Select the Tailscale icon
+view configuration options and status messages.
+
+## Log in and Validate the device on Tailscale
+Under your account, select Log in to launch a browser window, and authenticate using your Tailscale.com login.
