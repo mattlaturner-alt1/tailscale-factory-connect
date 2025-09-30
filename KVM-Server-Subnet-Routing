@@ -1,0 +1,15 @@
+## Log into the KVM server
+ssh user@<kvm-server-IP or DNS>
+
+## Add routes to be advertised
+sudo tailscale set --advertise-routes=<network>, <network>
+e.g. sudo tailscale set --advertise-routes=192.168.122.0/24
+
+## Approve and Save routes to be advertised on tailscale.com
+Go to the Machines page of the admin console and locate the device in the list. It should display the Subnets badge.
+Select the '3-dot' icon menu, then select Edit route settings.
+Check the IP range boxes that correspond to the subnet routes you want to advertise, then select Save.
+
+## If you have multiple servers acting as Subnet Routers you may also need to accept routed
+at the terminal of the server needing to accept the route enter:
+sudo tailscale set --accept-routes
