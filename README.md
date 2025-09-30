@@ -1,6 +1,5 @@
-# tailscale-factory-connect
+# Tailscale-Connected Network for PLC Communication, Monitoring and Support 
 Design to use Tailscale to connect an automation PLC running on Linux to application servers residing in a remote data center data center
-# Tailscale-Connected PLC Automation
 
 ## Overview
 This project demonstrates how to securely connect an industrial automation PLC running on Linux to remote application servers using [Tailscale](https://tailscale.com/), a mesh VPN built on WireGuard. The goal is to enable seamless, encrypted communication between edge devices and centralized infrastructure—ideal for reote access (support), remote monitoring, and automation control systems via APIs.
@@ -23,21 +22,28 @@ This project demonstrates how to securely connect an industrial automation PLC r
 - Secure telemetry streaming from PLC to cloud
 - Real-time control commands from centralized dashboards
 
-## Getting Started
-1. Install Tailscale on your PLC and remote server
-2. Authenticate both nodes into the same tailnet
-3. Configure firewall rules and ACLs as needed
-4. Deploy your automation scripts or services
+<img width="2007" height="897" alt="image" src="https://github.com/user-attachments/assets/7254cad8-fdb8-4270-8193-af14b1fd7526" />
 
-## Security Considerations
-- Encrypted peer-to-peer communication
-- Role-based access control via Tailscale ACLs
-- Optional integration with identity providers (Google, Microsoft, Okta)
+## Assumptions
+1) You already have a Tailscale account with "Admin" access
+2) The application server has KVM configured
+3) Port forwarding is previously configured for VM connectivity
+4) Host networks provide at minimum the following access:
+   - inside devices any --> TCP 443 (SSL)
+   - inside devices UDP 41641 (wireguard tunnel)--> Any
+   - inside devices UDP 3478 (STUN) --> Any
+   - inside devices TCP 80 (HTTP) --> Any
+
+## Deployment Steps (Suggested order)
+1) Install and Configure Tailscale on the KVM server - See document "KVM-Server" document
+2) Install and Configure Tailscale on the Linux PLC - See document "Linux-PLC" document
+3) Configure the KVM server for Subnet Routing and advertise routed for VMs - See "KVM-Server-Subnet-Routing" document
+4) Install and Configure Tailscale on Windows PV for remote access - See "Windows-PC" document
 
 ## Future Enhancements
 - Integration with Grafana for telemetry visualization
-- Support for multiple PLCs and failover routing
-- Dockerized deployment for edge portability
+- Role-based access control via Tailscale ACLs
+- Optional integration with identity providers (Google, Microsoft, Okta)
 
 ## License
 MIT
