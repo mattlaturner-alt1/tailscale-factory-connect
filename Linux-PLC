@@ -1,1 +1,15 @@
+## Install Tailscale 
+sudo curl -fsSL https://tailscale.com/install.sh | sh
 
+## Start Tailscale
+sudo tailscale up
+
+## Authenticate the server
+go to https://login.tailscale.com/a/<14 digit hexidecimal number>
+e.g. https://login.tailscale.com/a/1520e49f019277
+
+Log into your tailscale account
+
+There will be an option to "Conect" the device to tailnet - select "Connect"
+
+The new device will be added to you account and can be seen under "Machines" in the Tailscale web UI
