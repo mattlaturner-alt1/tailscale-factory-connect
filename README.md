@@ -41,6 +41,7 @@ This project demonstrates how to securely connect an industrial automation PLC r
 4) Install and Configure Tailscale on Windows PV for remote access - See file "Windows-PC" 
 
 ## Future Enhancements
+- Develop Terraform scripts to simplify deployment for thousands of PLC servers
 - Integration with Grafana for telemetry visualization
 - Role-based access control via Tailscale ACLs
 - Optional integration with identity providers (Google, Microsoft, Okta)
