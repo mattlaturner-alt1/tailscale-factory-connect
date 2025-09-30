@@ -35,10 +35,10 @@ This project demonstrates how to securely connect an industrial automation PLC r
    - inside devices TCP 80 (HTTP) --> Any
 
 ## Deployment Steps (Suggested order)
-1) Install and Configure Tailscale on the KVM server - See document "KVM-Server" document
-2) Install and Configure Tailscale on the Linux PLC - See document "Linux-PLC" document
-3) Configure the KVM server for Subnet Routing and advertise routed for VMs - See "KVM-Server-Subnet-Routing" document
-4) Install and Configure Tailscale on Windows PV for remote access - See "Windows-PC" document
+1) Install and Configure Tailscale on the KVM server - See file "KVM-Server" 
+2) Install and Configure Tailscale on the Linux PLC - See file "Linux-PLC" 
+3) Configure the KVM server for Subnet Routing and advertise routed for VMs - See file "KVM-Server-Subnet-Routing" 
+4) Install and Configure Tailscale on Windows PV for remote access - See file "Windows-PC" 
 
 ## Future Enhancements
 - Integration with Grafana for telemetry visualization
