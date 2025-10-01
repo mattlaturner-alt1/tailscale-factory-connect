@@ -38,11 +38,12 @@ This project demonstrates how to securely connect an industrial automation PLC r
 1) Install and Configure Tailscale on the KVM server - See file "KVM-Server" 
 2) Install and Configure Tailscale on the Linux PLC - See file "Linux-PLC" 
 3) Configure the KVM server for Subnet Routing and advertise routed for VMs - See file "KVM-Server-Subnet-Routing" 
-4) Install and Configure Tailscale on Windows PV for remote access - See file "Windows-PC" 
+4) Install and Configure Tailscale on Windows PV for remote access - See file "Windows-PC"
+5) (optional) Install and Deploy Tailscale/Prometheus/Grafana on Linux w/cockpit for advanced monitoring - base scripts "matt-tailnet.sh and matt-tailnet.yaml) 
 
 ## Future Enhancements
 - Develop Terraform scripts to simplify deployment for thousands of PLC servers
-- Integration with Grafana for telemetry visualization
+- Improve integration with Grafana for telemetry visualization (base ansible and bash scripts)
 - Role-based access control via Tailscale ACLs
 - Optional integration with identity providers (Google, Microsoft, Okta)
 
