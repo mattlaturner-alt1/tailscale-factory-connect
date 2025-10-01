@@ -5,9 +5,9 @@ Design to use Tailscale to connect an automation PLC running on Linux to applica
 This project demonstrates how to securely connect an industrial automation PLC running on Linux to remote application servers using [Tailscale](https://tailscale.com/), a mesh VPN built on WireGuard. The goal is to enable seamless, encrypted communication between edge devices and centralized infrastructure—ideal for reote access (support), remote monitoring, and automation control systems via APIs.
 
 ## Why Tailscale?
-- 🔐 Zero-config VPN with automatic key rotation
-- 🌍 Works across NATs and firewalls without port forwarding
-- 🧠 Ideal for edge-to-cloud architectures in industrial environments
+- Zero-config VPN with automatic key rotation
+- Works across NATs and firewalls without port forwarding
+- Ideal for edge-to-cloud architectures in industrial environments
 
 ## Architecture
 - **Edge Node**: Linux-based PLC
