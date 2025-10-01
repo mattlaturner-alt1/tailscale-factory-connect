@@ -4,6 +4,9 @@ sudo curl -fsSL https://tailscale.com/install.sh | sh
 ## Start Tailscale
 sudo tailscale up
 
+## If you want to enable ssh access from the Tailscale web management 
+sudo tailscale up -ssh
+
 ## Authenticate the server
 go to https://login.tailscale.com/a/<14 digit hexidecimal number>
 e.g. https://login.tailscale.com/a/1520e49f019277
