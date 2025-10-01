@@ -39,10 +39,22 @@ This project demonstrates how to securely connect an industrial automation PLC r
 2) Install and Configure Tailscale on the Linux PLC - See file "Linux-PLC" 
 3) Configure the KVM server for Subnet Routing and advertise routed for VMs - See file "KVM-Server-Subnet-Routing" 
 4) Install and Configure Tailscale on Windows PV for remote access - See file "Windows-PC"
-5) (optional) Install and Deploy Tailscale/Prometheus/Grafana on Linux w/cockpit for advanced monitoring - base scripts "matt-tailnet.sh and matt-tailnet-ansible) 
 
+## Deploy using bash scipts or ansible
+## There are several "base scripts" that can be modified based on you deployment variables, i.e. IP Adressing, acccounts, routes to advertise
+## Here's what each sample script does
+Deploy to multiple Tailscale clients Linux PLC servers 
+Bash acripts:
+1) matt-tailnet-multiple-server-deploy.sh.txt - uses bash scripts to deploy Tailscale clients to a list of servers by IP Address
+2) matt-tailnet.sh - Install and Deploy Tailscale/Prometheus/Grafana on Linux w/cockpit for advanced monitoring
+Ansible:
+1) matt-tailnet-multiple-server-deploy.yaml.txt - uses ansible to deploy Tailscale clients to a list of servers by .ini file
+2) inventory.ini - sample .ini file
+3) matt-tailnet-ansible.txt - uses ansible to Install and Deploy Tailscale/Prometheus/Grafana on Linux w/cockpit for advanced monitoring
+ 
 ## Future Enhancements
-- Develop Terraform scripts to simplify deployment for thousands of PLC servers
+- Develop detailed ansible scripts to simplify deployment for thousands of PLC servers
+- Develop Ta=erraform scripts to deploy monitoring servers in AWS
 - Improve integration with Grafana for telemetry visualization (base ansible and bash scripts)
 - Role-based access control via Tailscale ACLs
 - Optional integration with identity providers (Google, Microsoft, Okta)
