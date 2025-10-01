@@ -24,4 +24,8 @@
         tailscale up --authkey={{ tailscale_auth_key }}
         {% if advertise_subnet %} --advertise-routes={{ advertise_subnet }} {% endif %}
       args:
+
         executable: /bin/bash
+
+##### deploy with single line, using the .ini file
+ansible-playbook -i inventory.ini deploy_tailscale.yml --ask-become-pass
