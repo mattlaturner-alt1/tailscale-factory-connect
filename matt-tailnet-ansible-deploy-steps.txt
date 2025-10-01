@@ -1,0 +1,85 @@
+To deploy your **Matt-Tailnet** stack with Ansible, a step-by-step guide that gets everything running on your bare-metal or cloud Linux servers:
+
+---
+
+## Step-by-Step: Deploy Matt-Tailnet with Ansible
+
+### 1. **Install Ansible (on your control machine)**
+
+If you're running Ubuntu or Debian:
+
+```bash
+sudo apt update
+sudo apt install -y ansible
+```
+
+Or use `pip`:
+
+```bash
+pip install ansible
+```
+
+---
+
+### 2. **Create Your Project Structure**
+
+```bash
+mkdir matt-tailnet
+cd matt-tailnet
+touch matt_tailnet.yml inventory.ini
+```
+
+---
+
+### 3. **Define Your Inventory**
+
+Edit `inventory.ini` to list your target servers:
+
+```ini
+[tailnet]
+192.168.1.101 ansible_user=ubuntu ansible_ssh_private_key_file=~/.ssh/id_rsa
+192.168.1.102 ansible_user=ubuntu ansible_ssh_private_key_file=~/.ssh/id_rsa
+```
+
+You can name the group anything (`[tailnet]` here), and include as many hosts as needed.
+
+---
+
+### 4. **Save the Playbook**
+
+Paste the full `matt_tailnet.yml` playbook (from earlier) into your project folder. This playbook installs:
+
+- Cockpit
+- Tailscale with subnet routing
+- Prometheus Node Exporter
+- Grafana with auto-imported dashboard
+
+Make sure to replace the `tailscale_auth_key` and subnet with your actual values.
+
+---
+
+### 5. **Run the Playbook**
+
+From the `matt-tailnet` directory:
+
+```bash
+ansible-playbook -i inventory.ini matt_tailnet.yml --ask-become-pass
+```
+
+- `--ask-become-pass` prompts for `sudo` password if needed
+- You can also use `--limit` to target specific hosts
+
+---
+
+### 6. **Verify Deployment**
+
+After it runs, check:
+
+- `https://<host>:9090` → Cockpit
+- `http://<host>:3000` → Grafana (admin/admin)
+- `http://<host>:9100` → Node Exporter
+- `tailscale status` → Mesh connectivity
+
+---
+
+
