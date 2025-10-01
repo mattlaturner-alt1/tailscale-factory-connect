@@ -1,0 +1,27 @@
+---
+- name: Deploy Tailscale to multiple servers
+  hosts: all
+  become: yes
+  vars:
+    tailscale_auth_key: "tskey-xxxxxxxxxxxxxxxx"  # Replace with your actual key
+    advertise_subnet: "192.168.1.0/24"            # Optional: leave empty to skip
+
+  tasks:
+
+    - name: Install curl
+      apt:
+        name: curl
+        state: present
+        update_cache: yes
+
+    - name: Install Tailscale
+      shell: curl -fsSL https://tailscale.com/install.sh | sh
+      args:
+        executable: /bin/bash
+
+    - name: Start Tailscale with auth key and optional subnet
+      shell: >
+        tailscale up --authkey={{ tailscale_auth_key }}
+        {% if advertise_subnet %} --advertise-routes={{ advertise_subnet }} {% endif %}
+      args:
+        executable: /bin/bash
