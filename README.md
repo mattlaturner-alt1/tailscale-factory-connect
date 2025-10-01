@@ -4,6 +4,8 @@ Design to use Tailscale to connect an automation PLC running on Linux to applica
 ## Overview
 This project demonstrates how to securely connect an industrial automation PLC running on Linux to remote application servers using [Tailscale](https://tailscale.com/), a mesh VPN built on WireGuard. The goal is to enable seamless, encrypted communication between edge devices and centralized infrastructure—ideal for reote access (support), remote monitoring, and automation control systems via APIs.
 
+<img width="2007" height="897" alt="image" src="https://github.com/user-attachments/assets/7254cad8-fdb8-4270-8193-af14b1fd7526" />
+
 ## Why Tailscale?
 - Zero-config VPN with automatic key rotation
 - Works across NATs and firewalls without port forwarding
@@ -22,8 +24,6 @@ This project demonstrates how to securely connect an industrial automation PLC r
 - Secure telemetry streaming from PLC to cloud
 - Real-time control commands from centralized dashboards
 
-<img width="2007" height="897" alt="image" src="https://github.com/user-attachments/assets/7254cad8-fdb8-4270-8193-af14b1fd7526" />
-
 ## Assumptions
 1) You already have a Tailscale account with "Admin" access
 2) The application server has KVM configured
@@ -40,17 +40,17 @@ This project demonstrates how to securely connect an industrial automation PLC r
 3) Configure the KVM server for Subnet Routing and advertise routed for VMs - See file "KVM-Server-Subnet-Routing" 
 4) Install and Configure Tailscale on Windows PV for remote access - See file "Windows-PC"
 
-## Deploy using bash scipts or ansible
-## There are several "base scripts" that can be modified based on you deployment variables, i.e. IP Adressing, acccounts, routes to advertise
+## Deploy using bash scipts or ansible (in progress)
+## There are several "base scripts" that can be modified based on you deployment variables.
 ## Here's what each sample script does
 Deploy to multiple Tailscale clients Linux PLC servers 
 Bash acripts:
-1) matt-tailnet-multiple-server-deploy.sh.txt - uses bash scripts to deploy Tailscale clients to a list of servers by IP Address
+1) matt-tailnet-multiple-server-deploy.sh - uses bash scripts to deploy Tailscale clients to a list of servers by IP Address
 2) matt-tailnet.sh - Install and Deploy Tailscale/Prometheus/Grafana on Linux w/cockpit for advanced monitoring
 Ansible:
-1) matt-tailnet-multiple-server-deploy.yaml.txt - uses ansible to deploy Tailscale clients to a list of servers by .ini file
+1) matt-tailnet-multiple-server-deploy.yaml - uses ansible to deploy Tailscale clients to a list of servers by .ini file
 2) inventory.ini - sample .ini file
-3) matt-tailnet-ansible.txt - uses ansible to Install and Deploy Tailscale/Prometheus/Grafana on Linux w/cockpit for advanced monitoring
+3) matt-tailnet-ansible - uses ansible to Install and Deploy Tailscale/Prometheus/Grafana on Linux w/cockpit for advanced monitoring
  
 ## Future Enhancements
 - Develop detailed ansible scripts to simplify deployment for thousands of PLC servers
