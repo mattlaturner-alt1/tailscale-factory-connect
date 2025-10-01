@@ -47,6 +47,7 @@ Deploy to multiple Tailscale clients Linux PLC servers
 Bash acripts:
 1) matt-tailnet-multiple-server-deploy.sh - uses bash scripts to deploy Tailscale clients to a list of servers by IP Address
 2) matt-tailnet.sh - Install and Deploy Tailscale/Prometheus/Grafana on Linux w/cockpit for advanced monitoring
+
 Ansible:
 1) matt-tailnet-multiple-server-deploy.yaml - uses ansible to deploy Tailscale clients to a list of servers by .ini file
 2) inventory.ini - sample .ini file
