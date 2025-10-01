@@ -50,7 +50,8 @@ Bash acripts:
 Ansible:
 1) matt-tailnet-multiple-server-deploy.yaml - uses ansible to deploy Tailscale clients to a list of servers by .ini file
 2) inventory.ini - sample .ini file
-3) matt-tailnet-ansible - uses ansible to Install and Deploy Tailscale/Prometheus/Grafana on Linux w/cockpit for advanced monitoring
+3) matt-tailnet-ansible-deploy-steps.txt - step-by-step guide to install and deploy Tailscale/Prometheus/Grafana on Linux w/cockpit for advanced monitoring
+4) matt-tailnet.yaml- - uses ansible to install and deploy Tailscale/Prometheus/Grafana on Linux w/cockpit for advanced monitoring
  
 ## Future Enhancements
 - Develop detailed ansible scripts to simplify deployment for thousands of PLC servers
