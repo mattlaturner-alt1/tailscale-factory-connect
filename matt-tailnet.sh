@@ -11,22 +11,22 @@ DASHBOARD_ID="1860"  # Node Exporter Full
 GRAFANA_ADMIN="admin"
 GRAFANA_PASS="admin"
 
-echo "🚀 Starting Matt-Tailnet installation..."
+echo "Starting Matt-Tailnet installation..."
 
 # === Cockpit ===
-echo "🔧 Installing Cockpit..."
+echo "Installing Cockpit..."
 sudo apt update
 sudo apt install -y cockpit cockpit-networkmanager
 sudo systemctl enable --now cockpit.socket
 sudo ufw allow 9090
 
 # === Tailscale ===
-echo "🔗 Installing Tailscale..."
+echo "Installing Tailscale..."
 curl -fsSL https://tailscale.com/install.sh | sh
 sudo tailscale up --authkey=${TAILSCALE_AUTH_KEY} --advertise-routes=${ADVERTISE_SUBNET}
 
 # === Prometheus Node Exporter ===
-echo "📡 Installing Prometheus Node Exporter..."
+echo "Installing Prometheus Node Exporter..."
 wget https://github.com/prometheus/node_exporter/releases/download/v${PROM_NODE_EXPORTER_VERSION}/node_exporter-${PROM_NODE_EXPORTER_VERSION}.linux-amd64.tar.gz
 tar xvfz node_exporter-${PROM_NODE_EXPORTER_VERSION}.linux-amd64.tar.gz
 sudo mv node_exporter-${PROM_NODE_EXPORTER_VERSION}.linux-amd64/node_exporter /usr/local/bin/
@@ -47,7 +47,7 @@ sudo systemctl enable --now node_exporter
 sudo ufw allow 9100
 
 # === Grafana ===
-echo "📈 Installing Grafana..."
+echo "Installing Grafana..."
 sudo apt install -y software-properties-common apt-transport-https
 wget -q -O - https://packages.grafana.com/gpg.key | sudo apt-key add -
 echo "deb https://packages.grafana.com/oss/deb stable main" | sudo tee /etc/apt/sources.list.d/grafana.list
@@ -60,7 +60,7 @@ sudo ufw allow ${GRAFANA_PORT}
 sleep 10
 
 # === Add Prometheus Data Source ===
-echo "🔌 Configuring Grafana data source..."
+echo "Configuring Grafana data source..."
 curl -s -X POST http://localhost:${GRAFANA_PORT}/api/datasources \
   -H "Content-Type: application/json" \
   -u ${GRAFANA_ADMIN}:${GRAFANA_PASS} \
@@ -73,7 +73,7 @@ curl -s -X POST http://localhost:${GRAFANA_PORT}/api/datasources \
   }'
 
 # === Import Dashboard ===
-echo "📊 Importing Grafana dashboard..."
+echo "Importing Grafana dashboard..."
 curl -s -X POST http://localhost:${GRAFANA_PORT}/api/dashboards/import \
   -H "Content-Type: application/json" \
   -u ${GRAFANA_ADMIN}:${GRAFANA_PASS} \
@@ -94,9 +94,10 @@ curl -s -X POST http://localhost:${GRAFANA_PORT}/api/dashboards/import \
 # === Final Output ===
 IP=$(hostname -I | awk '{print $1}')
 echo ""
-echo "🎉 Matt-Tailnet is live!"
-echo "🔐 Cockpit: https://${IP}:9090"
-echo "📈 Grafana: http://${IP}:${GRAFANA_PORT} (admin/admin)"
-echo "📡 Node Exporter: http://${IP}:9100"
-echo "🕸️ Tailscale status:"
+echo "Matt-Tailnet is live!"
+echo "Cockpit: https://${IP}:9090"
+echo "Grafana: http://${IP}:${GRAFANA_PORT} (admin/admin)"
+echo "Node Exporter: http://${IP}:9100"
+echo "Tailscale status:"
+
 tailscale status
